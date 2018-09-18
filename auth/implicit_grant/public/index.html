@@ -41,13 +41,8 @@
         </div>
         <div class="media-body">
           <dl class="dl-horizontal">
-            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
+            <dt>Display name:</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>ID:</dt><dd>{{id}}</dd>
           </dl>
         </div>
       </div>
@@ -94,7 +89,7 @@
           text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
         return text;
-      };
+      }
 
       var userProfileSource = document.getElementById('user-profile-template').innerHTML,
         userProfileTemplate = Handlebars.compile(userProfileSource),
@@ -121,6 +116,9 @@
               'Authorization': 'Bearer ' + access_token
             },
             success: function (response) {
+              if (!response.display_name) {
+                response.display_name = response.id;
+              }
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
               $('#login').hide();
@@ -128,25 +126,26 @@
             }
           });
         } else {
+          // render initial screen
           $('#login').show();
           $('#loggedin').hide();
         }
 
         document.getElementById('login-button').addEventListener('click', function () {
           var client_id = '7306ac07764749518aca94d65ccfe50d'; // Your client id
-          var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+          var redirect_uri = 'http://localhost:8888'; // Your redirect uri
 
           var state = generateRandomString(16);
 
           localStorage.setItem(stateKey, state);
           var scope = 'user-read-private user-read-email';
 
-          var url = 'https://accounts.spotify.com/authorize';
-          url += '?response_type=token';
-          url += '&client_id=' + encodeURIComponent(client_id);
-          url += '&scope=' + encodeURIComponent(scope);
-          url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-          url += '&state=' + encodeURIComponent(state);
+          var url = 'https://accounts.spotify.com/authorize'
+            + '?response_type=token'
+            + '&client_id=' + encodeURIComponent(client_id)
+            + '&scope=' + encodeURIComponent(scope)
+            + '&redirect_uri=' + encodeURIComponent(redirect_uri)
+            + '&state=' + encodeURIComponent(state);
 
           window.location = url;
         }, false);
