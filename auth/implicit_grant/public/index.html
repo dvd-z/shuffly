@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example of the Implicit Grant flow with Spotify</title>
+  <title>Blender</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <style type="text/css">
     #login,
@@ -22,7 +22,7 @@
 <body>
   <div class="container">
     <div id="login">
-      <h1>This is an example of the Implicit Grant flow</h1>
+      <h1>Blender</h1>
       <button id="login-button" class="btn btn-primary">Log in with Spotify</button>
     </div>
     <div id="loggedin">
@@ -34,14 +34,23 @@
   </div>
 
   <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      {{#if display_name}}
+        <h1>Logged in as {{display_name}}</h1>
+      {{else}}
+        <h1>Logged in as {{id}}</h1>
+      {{/if}}
       <div class="media">
         <div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
         </div>
         <div class="media-body">
           <dl class="dl-horizontal">
-            <dt>Display name:</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>Display name:</dt>
+            {{#if display_name}}
+              <dd class="clearfix">{{display_name}}</dd>
+            {{else}}
+              <dd class="clearfix"><em>no display name</em></dd>
+            {{/if}}
             <dt>ID:</dt><dd>{{id}}</dd>
           </dl>
         </div>
@@ -116,9 +125,6 @@
               'Authorization': 'Bearer ' + access_token
             },
             success: function (response) {
-              if (!response.display_name) {
-                response.display_name = response.id;
-              }
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
               $('#login').hide();
