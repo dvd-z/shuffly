@@ -34,11 +34,13 @@
   </div>
 
   <script id="user-profile-template" type="text/x-handlebars-template">
-      {{#if display_name}}
-        <h1>Logged in as {{display_name}}</h1>
-      {{else}}
-        <h1>Logged in as {{id}}</h1>
-      {{/if}}
+    <h1>Logged in as 
+        {{#if display_name}}
+          {{display_name}}
+        {{else}}
+          {{id}}
+        {{/if}}
+    </h1>
       <div class="media">
         <div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
@@ -46,11 +48,13 @@
         <div class="media-body">
           <dl class="dl-horizontal">
             <dt>Display name:</dt>
-            {{#if display_name}}
-              <dd class="clearfix">{{display_name}}</dd>
-            {{else}}
-              <dd class="clearfix"><em>no display name</em></dd>
-            {{/if}}
+              <dd class="clearfix">
+              {{#if display_name}}
+                {{display_name}}
+              {{else}}
+                <em>no display name</em>
+              {{/if}}
+              </dd>
             <dt>ID:</dt><dd>{{id}}</dd>
           </dl>
         </div>
