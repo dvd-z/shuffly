@@ -2,72 +2,10 @@
 <html>
 
 <head>
-  <title>Blender</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <style type="text/css">
-    #login,
-    #loggedin {
-      display: none;
-    }
-
-    .text-overflow {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 500px;
-    }
-  </style>
+  <title>Blender Login</title>
 </head>
 
 <body>
-  <div class="container">
-    <div id="login">
-      <h1>Blender</h1>
-      <button id="login-button" class="btn btn-primary">Log in with Spotify</button>
-    </div>
-    <div id="loggedin">
-      <div id="user-profile">
-      </div>
-      <div id="oauth">
-      </div>
-    </div>
-  </div>
-
-  <script id="user-profile-template" type="text/x-handlebars-template">
-    <h1>Logged in as 
-        {{#if display_name}}
-          {{display_name}}
-        {{else}}
-          {{id}}
-        {{/if}}
-    </h1>
-      <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="150" src="{{images.0.url}}" />
-        </div>
-        <div class="media-body">
-          <dl class="dl-horizontal">
-            <dt>Display name:</dt>
-              <dd class="clearfix">
-              {{#if display_name}}
-                {{display_name}}
-              {{else}}
-                <em>no display name</em>
-              {{/if}}
-              </dd>
-            <dt>ID:</dt><dd>{{id}}</dd>
-          </dl>
-        </div>
-      </div>
-    </script>
-
-  <script id="oauth-template" type="text/x-handlebars-template">
-      <h2>oAuth info</h2>
-      <dl class="dl-horizontal">
-        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
-      </dl>
-    </script>
-
   <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script>
@@ -104,13 +42,24 @@
         return text;
       }
 
-      var userProfileSource = document.getElementById('user-profile-template').innerHTML,
-        userProfileTemplate = Handlebars.compile(userProfileSource),
-        userProfilePlaceholder = document.getElementById('user-profile');
+      function login() {
+        var client_id = '7306ac07764749518aca94d65ccfe50d'; // Your client id
+        var redirect_uri = 'http://localhost:3000'; // Your redirect uri
 
-      oauthSource = document.getElementById('oauth-template').innerHTML,
-        oauthTemplate = Handlebars.compile(oauthSource),
-        oauthPlaceholder = document.getElementById('oauth');
+        var state = generateRandomString(16);
+
+        localStorage.setItem(stateKey, state);
+        var scope = 'user-read-private user-read-email user-read-playback-state';
+
+        var url = 'https://accounts.spotify.com/authorize'
+          + '?response_type=token'
+          + '&client_id=' + encodeURIComponent(client_id)
+          + '&scope=' + encodeURIComponent(scope)
+          + '&redirect_uri=' + encodeURIComponent(redirect_uri)
+          + '&state=' + encodeURIComponent(state);
+
+        window.location = url;
+      }
 
       var params = getHashParams();
 
@@ -130,36 +79,12 @@
             },
             success: function (response) {
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
-
-              $('#login').hide();
-              $('#loggedin').show();
             }
           });
-        } else {
-          // render initial screen
-          $('#login').show();
-          $('#loggedin').hide();
         }
-
-        document.getElementById('login-button').addEventListener('click', function () {
-          var client_id = '7306ac07764749518aca94d65ccfe50d'; // Your client id
-          var redirect_uri = 'http://localhost:3000'; // Your redirect uri
-
-          var state = generateRandomString(16);
-
-          localStorage.setItem(stateKey, state);
-          var scope = 'user-read-private user-read-email user-read-playback-state';
-
-          var url = 'https://accounts.spotify.com/authorize'
-            + '?response_type=token'
-            + '&client_id=' + encodeURIComponent(client_id)
-            + '&scope=' + encodeURIComponent(scope)
-            + '&redirect_uri=' + encodeURIComponent(redirect_uri)
-            + '&state=' + encodeURIComponent(state);
-
-          window.location = url;
-        }, false);
       }
+
+      window.onload = login();
     })();
   </script>
 
