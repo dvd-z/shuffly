@@ -24,6 +24,7 @@ class App extends Component {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
       q = window.location.hash.substring(1);
+    // eslint-disable-next-line
     while (e = r.exec(q)) {
       hashParams[e[1]] = decodeURIComponent(e[2]);
     }
@@ -47,6 +48,14 @@ class App extends Component {
   }
 
   render() {
+    let image;
+
+    if (this.state.nowPlaying.img) {
+      image = <img alt='Album art' src={this.state.nowPlaying.img} style={{ width: 100 }} />;
+    } else {
+      image = null;
+    }
+
     return (
       <div className="App">
         <form action="http://localhost:8888">
@@ -56,7 +65,7 @@ class App extends Component {
           Now Playing: {this.state.nowPlaying.name}
         </div>
         <div>
-          <img src={this.state.nowPlaying.img} style={{ width: 100 }} />
+          {image}
         </div>
         <button onClick={() => this.getNowPlaying()}>
           Check now playing
