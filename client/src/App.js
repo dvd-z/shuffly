@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import Spotify from 'spotify-web-api-js';
+import './App.css';
 
 const spotifyWebApi = new Spotify();
 
@@ -20,6 +20,10 @@ class App extends Component {
     }
   }
 
+  /**
+   * Obtains parameters from the hash of the URL
+   * @return Object
+   */
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -44,6 +48,10 @@ class App extends Component {
             img: res.item.album.images[0].url
           }
         });
+      })
+      .catch(err => {
+        var response = JSON.parse(err.response);
+        alert(response.error.message);
       });
   }
 

@@ -6,7 +6,6 @@
 </head>
 
 <body>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script>
     (function () {
@@ -49,7 +48,8 @@
         var state = generateRandomString(16);
 
         localStorage.setItem(stateKey, state);
-        var scope = 'user-read-private user-read-email user-read-playback-state';
+        var scope = 'user-read-private user-read-email';
+        scope += ' user-read-playback-state';
 
         var url = 'https://accounts.spotify.com/authorize'
           + '?response_type=token'
@@ -76,9 +76,6 @@
             url: 'https://api.spotify.com/v1/me',
             headers: {
               'Authorization': 'Bearer ' + access_token
-            },
-            success: function (response) {
-              userProfilePlaceholder.innerHTML = userProfileTemplate(response);
             }
           });
         }

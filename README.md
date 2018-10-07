@@ -4,12 +4,12 @@
 
 ## Requirements
 
-[npm](https://www.npmjs.com/)
+- [npm](https://www.npmjs.com/)
 
 ## Installation
 
 ```bash
-git clone git@github.com:dvd-z/blender.git
+git clone https://github.com/dvd-z/blender.git
 cd blender/auth
 npm install
 cd ../client
