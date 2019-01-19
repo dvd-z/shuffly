@@ -1,4 +1,4 @@
-# blender
+# shuffly
 
 ## WORK IN PROGRESS
 
@@ -9,8 +9,8 @@
 ## Installation
 
 ```bash
-git clone https://github.com/dvd-z/blender.git
-cd blender/auth
+git clone https://github.com/dvd-z/shuffly.git
+cd shuffly/auth
 npm install
 cd ../client
 npm install
