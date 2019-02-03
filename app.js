@@ -9,6 +9,7 @@
 
 var express = require('express'); // Express web server framework
 var app = express();
-app.use(express.static(__dirname + '/public'));
+var path = require('path');
+app.use(express.static(path.join(__dirname, '/auth')));
 console.log('Listening on 8888');
 app.listen(8888);
