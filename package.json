@@ -4,6 +4,7 @@
   "description": "Spotify app to reorder your Spotify playlists in-place.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/dvd-z/shuffly#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "nodemon": "^1.18.9",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "spotify-web-api-js": "^1.2.0"
