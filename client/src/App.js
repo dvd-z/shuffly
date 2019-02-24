@@ -10,6 +10,14 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    if (Object.entries(this.state.params).length !== 0) {
+      this.postParams()
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+  }
+
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -35,6 +43,19 @@ class App extends Component {
     }
     return body;
   };
+
+  postParams = async () => {
+    const response = await fetch('/params', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state.params)
+    });
+    const status = await response.status;
+    return status;
+  }
 
   render() {
     return (

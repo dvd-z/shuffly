@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const port = process.env.PORT || 8888;
+
+var params = {};
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/login', (req, res) => {
   function generateRandomString(length) {
@@ -29,6 +35,17 @@ app.get('/login', (req, res) => {
   }
   const url = login();
   res.send({ url: url });
+});
+
+app.post('/params', (req, res) => {
+  params = req.body;
+
+  if (params.access_token) {
+    spotifyWebApi.setAccessToken(params.access_token);
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(400);
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
