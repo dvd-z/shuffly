@@ -37,15 +37,17 @@ app.get('/login', (req, res) => {
   res.send({ url: url });
 });
 
-app.post('/params', (req, res) => {
-  params = req.body;
-
-  if (params.access_token) {
-    spotifyWebApi.setAccessToken(params.access_token);
-    res.sendStatus(200);
-  } else {
-    res.sendStatus(400);
+app.get('/playlists', (req, res) => {
+  if (!spotifyWebApi.getAccessToken()) {
+    res.send({ err: 'No Spotify access token. Please log in.' });
   }
+
+  spotifyWebApi.getUserPlaylists()
+    .then(res => res.send(res.items))
+    .catch(err => {
+      const response = JSON.parse(err.response);
+      res.send({ err: response.err });
+    });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));

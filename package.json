@@ -15,6 +15,7 @@
   "homepage": "https://github.com/dvd-z/shuffly#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "spotify-web-api-js": "^1.2.0"
   }
 }
