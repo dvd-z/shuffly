@@ -1,13 +1,8 @@
 {
   "name": "shuffly",
   "version": "1.0.0",
+  "private": true,
   "description": "Spotify app to reorder your Spotify playlists in-place.",
-  "main": "app.js",
-  "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dvd-z/shuffly.git"
@@ -17,12 +12,25 @@
   "bugs": {
     "url": "https://github.com/dvd-z/shuffly/issues"
   },
-  "homepage": "https://github.com/dvd-z/shuffly#readme",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "express": "^4.16.4",
-    "nodemon": "^1.18.9",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5",
     "spotify-web-api-js": "^1.2.0"
   }
 }
