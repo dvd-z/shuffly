@@ -11,6 +11,7 @@
 
 ```bash
 git clone https://github.com/dvd-z/shuffly.git
+cd shuffly
 npm install
 npm start
 ```
