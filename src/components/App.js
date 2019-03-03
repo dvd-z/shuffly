@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import generateRandomString from '../functions/generateRandomString';
+import getHashParams from '../functions/getHashParams';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
@@ -7,7 +9,7 @@ const spotifyWebApi = new Spotify();
 class App extends Component {
   constructor() {
     super();
-    const params = this.getHashParams();
+    const params = getHashParams();
     this.state = {
       playlists: []
     };
@@ -16,33 +18,14 @@ class App extends Component {
     }
   }
 
-  generateRandomString(length) {
-    var text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-  }
-
-  getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-      q = window.location.hash.substring(1);
-    while (e = r.exec(q)) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
-  }
-
   login() {
     const clientId = '7306ac07764749518aca94d65ccfe50d';
     const redirectUri = `http://localhost:3000`;
-    const state = this.generateRandomString(16);
     const scope = 'user-read-private'
       + ' user-read-email'
       + ' playlist-read-private'
       + ' playlist-modify-private';
+    const state = generateRandomString(16);
     const url = 'https://accounts.spotify.com/authorize'
       + '?response_type=token'
       + '&client_id=' + encodeURIComponent(clientId)
