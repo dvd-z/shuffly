@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import getHashParams from '../functions/getHashParams';
+import Playlist from './Playlist';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
@@ -9,6 +10,7 @@ class Playlists extends Component {
     super();
     const params = getHashParams();
     this.state = {
+      index: 0,
       playlists: []
     };
     if (params.access_token) {
@@ -22,7 +24,7 @@ class Playlists extends Component {
       return;
     }
 
-    spotifyWebApi.getUserPlaylists()
+    spotifyWebApi.getUserPlaylists({ index: this.state.index })
       .then(res => {
         this.setState({ playlists: res.items });
         console.log(res.items);
@@ -34,8 +36,12 @@ class Playlists extends Component {
   }
 
   render() {
+    const playlists = this.state.playlists.map(playlist =>
+      <Playlist key={playlist.uri} playlist={playlist} />
+    );
     return (
       <ul>
+        {playlists}
       </ul>
     );
   }
