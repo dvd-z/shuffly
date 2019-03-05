@@ -4,7 +4,7 @@ import generateRandomString from '../functions/generateRandomString';
 class Login extends Component {
   login() {
     const clientId = '7306ac07764749518aca94d65ccfe50d';
-    const redirectUri = `http://localhost:3000`;
+    const redirectUri = `http://localhost:3000/app`;
     const scope = 'user-read-private'
       + ' user-read-email'
       + ' playlist-read-private'
