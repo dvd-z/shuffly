@@ -16,9 +16,9 @@ class Playlists extends Component {
     }
   }
 
-  getPlaylists() {
+  componentDidMount() {
     if (!spotifyWebApi.getAccessToken()) {
-      alert('No Spotify access token. Please log in.');
+      alert('No Spotify access token. Please log in again.');
       return;
     }
 
@@ -35,7 +35,8 @@ class Playlists extends Component {
 
   render() {
     return (
-      <button onClick={() => this.getPlaylists()}>Get playlists</button>
+      <ul>
+      </ul>
     );
   }
 }
