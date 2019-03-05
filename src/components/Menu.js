@@ -11,7 +11,7 @@ class Menu extends Component {
     super();
     this.state = {
       params: getHashParams(),
-      user: null
+      user: ''
     };
     if (this.state.params.access_token) {
       spotifyWebApi.setAccessToken(this.state.params.access_token);
@@ -33,15 +33,10 @@ class Menu extends Component {
   }
 
   render() {
-    let userId = null;
-    if (this.state.user) {
-      userId = this.state.user.id;
-    }
-
     return (
       <div>
         <User user={this.state.user} />
-        <Playlists params={this.state.params} userId={userId} />
+        <Playlists params={this.state.params} userId={this.state.user ? this.state.user.id : ''} />
       </div>
     );
   }
