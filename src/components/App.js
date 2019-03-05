@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Login from './Login';
+import NotFound from './NotFound';
 import Playlists from './Playlists';
 
 class App extends Component {
@@ -13,8 +14,11 @@ class App extends Component {
         </header>
         <BrowserRouter>
           <div>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/app" component={Playlists} />
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route exact path="/app" component={Playlists} />
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
