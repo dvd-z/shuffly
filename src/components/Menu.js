@@ -40,8 +40,8 @@ class Menu extends Component {
 
     return (
       <div>
-        <Playlists params={this.state.params} />
         <User user={this.state.user} />
+        <Playlists params={this.state.params} userId={userId} />
       </div>
     );
   }
