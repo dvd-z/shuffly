@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import getHashParams from '../functions/getHashParams';
 import Playlist from './Playlist';
 import Spotify from 'spotify-web-api-js';
 
@@ -8,17 +7,17 @@ const spotifyWebApi = new Spotify();
 class Playlists extends Component {
   constructor() {
     super();
-    const params = getHashParams();
     this.state = {
       index: 0,
       playlists: []
     };
-    if (params.access_token) {
-      spotifyWebApi.setAccessToken(params.access_token);
-    }
   }
 
   componentDidMount() {
+    if (this.props.params.access_token) {
+      spotifyWebApi.setAccessToken(this.props.params.access_token);
+    }
+
     if (!spotifyWebApi.getAccessToken()) {
       alert('No Spotify access token. Please log in again.');
       return;
