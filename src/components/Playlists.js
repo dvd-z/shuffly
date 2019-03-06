@@ -15,10 +15,6 @@ class Playlists extends Component {
   }
 
   componentDidMount() {
-    if (this.props.params.access_token) {
-      spotifyWebApi.setAccessToken(this.props.params.access_token);
-    }
-
     if (!spotifyWebApi.getAccessToken()) {
       console.error('No Spotify access token. Please log in again.');
       return;
@@ -27,7 +23,7 @@ class Playlists extends Component {
     spotifyWebApi.getUserPlaylists({ index: this.state.index })
       .then(res => {
         const validPlaylists = res.items.filter(playlist =>
-          playlist.owner.id === this.props.userId
+          playlist.owner.id === this.props.userId && playlist.name.includes('test')
         );
         this.setState({ playlists: validPlaylists });
       })
@@ -39,7 +35,11 @@ class Playlists extends Component {
 
   render() {
     const playlists = this.state.playlists.map(playlist =>
-      <Playlist key={playlist.uri} accessToken={this.props.params ? this.props.params.access_token : ''} playlist={playlist} />
+      <Playlist
+        key={playlist.uri}
+        accessToken={this.props.params ? this.props.params.access_token : ''}
+        playlist={playlist}
+      />
     );
     return (
       <div>

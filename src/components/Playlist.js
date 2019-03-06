@@ -27,6 +27,7 @@ class Playlist extends Component {
         console.log('res');
         console.log(res);
         const shuffledPlaylist = shuffleArray(this.state.tracks);
+        console.log('shuffled');
         console.log(shuffledPlaylist);
       })
       .catch(err => {
