@@ -38,7 +38,7 @@ class Playlists extends Component {
 
   render() {
     const playlists = this.state.playlists.map(playlist =>
-      <Playlist key={playlist.uri} playlist={playlist} />
+      <Playlist key={playlist.uri} accessToken={this.props.params ? this.props.params.access_token : ''} playlist={playlist} />
     );
     return (
       <ul>
