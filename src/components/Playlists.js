@@ -19,7 +19,7 @@ class Playlists extends Component {
     }
 
     if (!spotifyWebApi.getAccessToken()) {
-      alert('No Spotify access token. Please log in again.');
+      console.error('No Spotify access token. Please log in again.');
       return;
     }
 
@@ -32,7 +32,7 @@ class Playlists extends Component {
       })
       .catch(err => {
         const response = JSON.parse(err.response);
-        alert(response.error);
+        console.error(response.error);
       });
   }
 
