@@ -37,11 +37,11 @@ class Playlist extends Component {
 
   render() {
     return (
-      <li>
+      <div>
         <img alt={this.props.playlist.name + " album art"} src={this.props.playlist.images[0].url} height="64"></img>
         {this.props.playlist.name}
         <button onClick={() => this.shufflePlaylist()}>Shuffle</button>
-      </li>
+      </div>
     );
   }
 }

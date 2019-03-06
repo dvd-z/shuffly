@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Playlists.css';
 import Playlist from './Playlist';
 import Spotify from 'spotify-web-api-js';
 
@@ -41,9 +42,11 @@ class Playlists extends Component {
       <Playlist key={playlist.uri} accessToken={this.props.params ? this.props.params.access_token : ''} playlist={playlist} />
     );
     return (
-      <ul>
-        {playlists}
-      </ul>
+      <div>
+        <div className="scroller">
+          {playlists}
+        </div>
+      </div>
     );
   }
 }
