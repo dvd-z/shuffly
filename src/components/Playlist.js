@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shuffleArray from '../functions/shuffleArray';
+import Tracks from './Tracks';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
@@ -8,6 +9,7 @@ class Playlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loadable: false,
       tracks: []
     };
   }
@@ -19,16 +21,16 @@ class Playlist extends Component {
     }
 
     const options = {
-      fields: 'items(track),limit,next,offset,previous,total'
+      fields: 'items(track(album(artists(name),images(url)),external_urls,id,name)),limit,total',
+      limit: 3
     };
     spotifyWebApi.getPlaylistTracks(this.props.playlist.id, options)
       .then(res => {
-        this.setState({ tracks: res.items });
-        console.log('res');
-        console.log(res);
-        const shuffledPlaylist = shuffleArray(this.state.tracks);
-        console.log('shuffled');
-        console.log(shuffledPlaylist);
+        this.setState({
+          loadable: res.total > res.limit,
+          tracks: res.items
+        });
+        // const shuffledPlaylist = shuffledPlaylist(this.state.tracks);
       })
       .catch(err => {
         const response = JSON.parse(err.response);
@@ -43,6 +45,7 @@ class Playlist extends Component {
         {this.props.playlist.name} - {this.props.playlist.tracks.total} songs -
         <a href={this.props.playlist.external_urls.spotify}>Hyperlink</a>
         <button onClick={() => this.shufflePlaylist()}>Shuffle</button>
+        <Tracks loadable={this.state.loadable} tracks={this.state.tracks} />
       </div>
     );
   }
