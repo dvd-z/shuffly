@@ -21,7 +21,7 @@ class Playlist extends Component {
     }
 
     const options = {
-      fields: 'items(track(album(artists(name),images(url)),external_urls,id,name)),limit,total',
+      fields: 'items(track(album(images(url)),artists(name),external_urls,id,name)),limit,total',
       limit: 3
     };
     spotifyWebApi.getPlaylistTracks(this.props.playlist.id, options)
