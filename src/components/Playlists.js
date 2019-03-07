@@ -34,7 +34,9 @@ class Playlists extends Component {
   }
 
   render() {
-    const playlists = this.state.playlists.map(playlist =>
+    const filteredPlaylists = this.state.playlists.filter(playlist =>
+      playlist.name.includes(this.props.query)
+    ).map(playlist =>
       <Playlist
         key={playlist.uri}
         accessToken={this.props.params ? this.props.params.access_token : ''}
@@ -45,7 +47,7 @@ class Playlists extends Component {
       <div>
         <h3>Your Playlists</h3>
         <div className="scroller">
-          {playlists}
+          {filteredPlaylists}
         </div>
       </div>
     );
