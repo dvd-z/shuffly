@@ -23,7 +23,7 @@ class Menu extends Component {
 
   componentDidMount() {
     if (!spotifyWebApi.getAccessToken()) {
-      console.error('No Spotify access token. Please log in again.');
+      alert('No Spotify access token. Please log in again.');
       return;
     }
 

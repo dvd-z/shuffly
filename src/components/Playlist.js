@@ -16,7 +16,7 @@ class Playlist extends Component {
 
   shufflePlaylist() {
     if (!spotifyWebApi.getAccessToken()) {
-      console.error('No Spotify access token. Please log in again.');
+      alert('No Spotify access token. Please log in again.');
       return;
     }
 
