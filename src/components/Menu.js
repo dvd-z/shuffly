@@ -15,18 +15,13 @@ class Menu extends Component {
       query: '',
       user: ''
     };
-    this.propagateQuery = this.propagateQuery.bind(this)
+    this.propagateQuery = this.propagateQuery.bind(this);
     if (this.state.params.access_token) {
       spotifyWebApi.setAccessToken(this.state.params.access_token);
     }
   }
 
   componentDidMount() {
-    if (!spotifyWebApi.getAccessToken()) {
-      console.error('No Spotify access token. Please log in again.');
-      return;
-    }
-
     spotifyWebApi.getMe()
       .then(res => this.setState({ user: res }))
       .catch(err => {

@@ -19,7 +19,7 @@ class SearchBar extends Component {
     return (
       <div>
         <img alt="Search icon" src=""></img>
-        <input type="text" value={this.state.query} onChange={this.handleChange} placeholder="Search"></input>
+        <input type="text" value={this.state.query} onChange={this.handleChange} placeholder="Filter"></input>
       </div>
     );
   }
