@@ -55,9 +55,8 @@ class Playlists extends Component {
     ).map(playlist =>
       <Playlist
         key={playlist.id}
-        id={playlist.id}
-        accessToken={this.props.params ? this.props.params.access_token : ''}
         fetchNewArt={this.fetchNewArt}
+        id={playlist.id}
         playlist={playlist}
       />
     );

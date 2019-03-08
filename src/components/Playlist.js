@@ -56,7 +56,8 @@ class Playlist extends Component {
         this.fetchNewArt(this.props.id);
         this.setState({
           selected: null,
-          swapping: false
+          swapping: false,
+          tracks: []
         });
       }
     }, 150);
