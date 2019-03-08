@@ -12,6 +12,7 @@ class Playlists extends Component {
       index: 0,
       playlists: []
     };
+    this.fetchNewArt = this.fetchNewArt.bind(this);
   }
 
   componentDidMount() {
@@ -28,13 +29,35 @@ class Playlists extends Component {
       });
   }
 
+  fetchNewArt(id) {
+    const options = {
+      fields: 'images'
+    };
+    spotifyWebApi.getPlaylist(id, options)
+      .then(res => {
+        let swappedPlaylists = this.state.playlists;
+        swappedPlaylists[this.state.playlists.findIndex(
+          playlist => playlist.id === id
+        )].images = res.images;
+        this.setState({
+          playlists: swappedPlaylists
+        });
+      })
+      .catch(err => {
+        const response = JSON.parse(err.response);
+        console.error(response.error);
+      });
+  }
+
   render() {
     const filteredPlaylists = this.state.playlists.filter(playlist =>
       playlist.name.toLocaleLowerCase().includes(this.props.query.toLocaleLowerCase())
     ).map(playlist =>
       <Playlist
         key={playlist.id}
+        id={playlist.id}
         accessToken={this.props.params ? this.props.params.access_token : ''}
+        fetchNewArt={this.fetchNewArt}
         playlist={playlist}
       />
     );

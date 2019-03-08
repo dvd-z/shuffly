@@ -38,6 +38,10 @@ class Playlist extends Component {
     });
   }
 
+  fetchNewArt(id) {
+    this.props.fetchNewArt(id);
+  }
+
   shufflePlaylist() {
     this.setState({
       swapping: true
@@ -49,7 +53,9 @@ class Playlist extends Component {
       i--;
       if (i <= 0) {
         clearInterval(swapInterval);
+        this.fetchNewArt(this.props.id);
         this.setState({
+          selected: null,
           swapping: false
         });
       }
