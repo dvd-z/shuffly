@@ -15,7 +15,7 @@ class Menu extends Component {
       query: '',
       user: ''
     };
-    this.propagateQuery = this.propagateQuery.bind(this)
+    this.propagateQuery = this.propagateQuery.bind(this);
     if (this.state.params.access_token) {
       spotifyWebApi.setAccessToken(this.state.params.access_token);
     }
