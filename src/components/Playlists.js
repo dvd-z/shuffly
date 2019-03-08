@@ -15,11 +15,6 @@ class Playlists extends Component {
   }
 
   componentDidMount() {
-    if (!spotifyWebApi.getAccessToken()) {
-      alert('No Spotify access token. Please log in again.');
-      return;
-    }
-
     spotifyWebApi.getUserPlaylists({ index: this.state.index })
       .then(res => {
         const validPlaylists = res.items.filter(playlist =>

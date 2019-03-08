@@ -16,11 +16,6 @@ class Playlist extends Component {
 
   handleClick() {
     if (this.state.selected === null) {
-      if (!spotifyWebApi.getAccessToken()) {
-        alert('No Spotify access token. Please log in again.');
-        return;
-      }
-
       const options = {
         fields: 'items(track(album(images(url)),artists(name),external_urls,id,name)),limit,total',
         limit: 3
