@@ -10,7 +10,7 @@ class Playlist extends Component {
     this.state = {
       loadable: false,
       selected: null,
-      swapping: false,
+      shuffling: false,
       tracks: []
     };
   }
@@ -44,7 +44,7 @@ class Playlist extends Component {
 
   shufflePlaylist() {
     this.setState({
-      swapping: true
+      shuffling: true
     });
     let i = this.props.playlist.tracks.total - 1;
     let swapInterval = setInterval(() => {
@@ -56,15 +56,16 @@ class Playlist extends Component {
         this.fetchNewArt(this.props.id);
         this.setState({
           selected: null,
-          swapping: false
+          shuffling: false,
+          tracks: []
         });
       }
-    }, 150);
+    }, 100);
   }
 
   swap(to, from) {
     spotifyWebApi
-      .reorderTracksInPlaylist(this.props.playlist.id, from, to)
+      .reorderTracksInPlaylist(this.props.playlist.id, from, to + 1)
       .catch(err => {
         const response = JSON.parse(err.response);
         console.error(response.error);
@@ -74,7 +75,7 @@ class Playlist extends Component {
   render() {
     return (
       <div>
-        {!this.state.swapping ? (
+        {!this.state.shuffling ? (
           <div onClick={() => this.handleClick()}>
             <img alt={this.props.playlist.name + " album art"} src={this.props.playlist.images[0].url} height="64"></img>
             {this.props.playlist.name} - {this.props.playlist.tracks.total} songs -
@@ -87,7 +88,7 @@ class Playlist extends Component {
             }
           </div>
         ) : (
-            <div>Swapping...</div>
+            <div>Shuffling...</div>
           )
         }
       </div>

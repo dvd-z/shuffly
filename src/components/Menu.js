@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import getHashParams from '../functions/getHashParams';
 import Playlists from './Playlists';
 import SearchBar from './SearchBar';
 import User from './User';
+import getHashParams from '../functions/getHashParams';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
@@ -43,7 +43,7 @@ class Menu extends Component {
           <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.state.user} />
         </div>
-        <Playlists params={this.state.params} query={this.state.query} userId={this.state.user ? this.state.user.id : ''} />
+        <Playlists params={this.state.params} query={this.state.query} userId={this.state.user.id} />
       </div>
     );
   }

@@ -19,7 +19,7 @@ class Playlists extends Component {
     spotifyWebApi.getUserPlaylists({ index: this.state.index })
       .then(res => {
         const validPlaylists = res.items.filter(playlist =>
-          playlist.owner.id === this.props.userId && playlist.name.includes('demo')
+          playlist.owner.id === this.props.userId
         );
         this.setState({ playlists: validPlaylists });
       })
@@ -55,9 +55,8 @@ class Playlists extends Component {
     ).map(playlist =>
       <Playlist
         key={playlist.id}
-        id={playlist.id}
-        accessToken={this.props.params ? this.props.params.access_token : ''}
         fetchNewArt={this.fetchNewArt}
+        id={playlist.id}
         playlist={playlist}
       />
     );
