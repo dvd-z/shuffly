@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import getHashParams from '../functions/getHashParams';
 import Playlists from './Playlists';
 import SearchBar from './SearchBar';
 import User from './User';
+import getHashParams from '../functions/getHashParams';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
