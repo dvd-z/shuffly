@@ -60,7 +60,7 @@ class Playlist extends Component {
           tracks: []
         });
       }
-    }, 150);
+    }, 100);
   }
 
   swap(to, from) {
