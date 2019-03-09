@@ -65,7 +65,7 @@ class Playlist extends Component {
 
   swap(to, from) {
     spotifyWebApi
-      .reorderTracksInPlaylist(this.props.playlist.id, from, to)
+      .reorderTracksInPlaylist(this.props.playlist.id, from, to + 1)
       .catch(err => {
         const response = JSON.parse(err.response);
         console.error(response.error);
