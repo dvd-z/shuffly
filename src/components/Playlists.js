@@ -17,12 +17,13 @@ class Playlists extends Component {
 
   componentDidMount() {
     spotifyWebApi.getUserPlaylists({ index: this.state.index })
-      .then(res => {
-        const validPlaylists = res.items.filter(playlist =>
-          playlist.owner.id === this.props.userId
-        );
-        this.setState({ playlists: validPlaylists });
-      })
+      .then(res =>
+        this.setState({
+          playlists: res.items.filter(playlist =>
+            playlist.owner.id === this.props.userId
+          )
+        })
+      )
       .catch(err => {
         const response = JSON.parse(err.response);
         console.error(response.error);
