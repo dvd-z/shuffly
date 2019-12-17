@@ -6,7 +6,7 @@ Initial mock-ups can be found on [Figma](https://www.figma.com/file/e1wJbRxr0BGG
 
 ## Requirements
 
-- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/en/download/)
 - Spotify account with playlists 🙂
 
 ## Installation
