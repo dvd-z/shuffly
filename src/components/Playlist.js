@@ -77,7 +77,9 @@ class Playlist extends Component {
       <div>
         {!this.state.shuffling ? (
           <div onClick={() => this.handleClick()}>
-            <img alt={this.props.playlist.name + " album art"} src={this.props.playlist.images[0].url} height="64"></img>
+            <img alt={this.props.playlist.name + " album art"}
+              src={this.props.playlist.images[0] ? this.props.playlist.images[0].url : 'data:,'} height="64">
+              </img>
             {this.props.playlist.name} - {this.props.playlist.tracks.total} songs -
             <a href={this.props.playlist.external_urls.spotify}>Hyperlink</a>
             {this.state.selected &&
