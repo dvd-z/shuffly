@@ -7,6 +7,7 @@ class Login extends Component {
     const redirectUri = process.env.REACT_APP_REDIRECT_URI;
     const scope =
       ['playlist-read-private',
+        'playlist-modify-public',
         'playlist-modify-private'];
     const state = generateRandomString(16);
     const url = 'https://accounts.spotify.com/authorize'
