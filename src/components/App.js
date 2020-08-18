@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Header';
 import Login from './Login';
 import Menu from './Menu';
 import NotFound from './NotFound';
@@ -36,13 +35,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header user={this.state.user} />
         <BrowserRouter>
           <div>
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/app" render={
-                (props) => <Menu {...props} params={this.state.params} query={this.state.query} userId={this.state.user ? this.state.user.id : -1} />
+                (props) => <Menu {...props} params={this.state.params} query={this.state.query} user={this.state.user} />
               } />
               <Route component={NotFound} />
             </Switch>
