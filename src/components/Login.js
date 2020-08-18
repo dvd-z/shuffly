@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import generateRandomString from '../functions/generateRandomString';
+import "./Login.css";
+import logo from "../images/logo.png";
 
 class Login extends Component {
   login() {
@@ -21,7 +23,19 @@ class Login extends Component {
 
   render() {
     return (
-      <button onClick={() => this.login()}>Log in</button>
+      <div id="background">
+        <div id="text-container">
+          <span id="welcome"><span role="img" aria-label="Hand wave">👋</span>&nbsp;&nbsp;Hey there, welcome to Shuffly</span>
+          <span id="description">Shuffly is a service that directly accesses<br />your Spotify playlists to randomly<br /> reorder the tracks on them in place</span>
+          <div id="button-container">
+            <button className="SpotifyButton" onClick={() => this.login()}>LOG IN WITH SPOTIFY</button>
+            <span id="powered-by">Powered by Spotify API</span>
+          </div>
+        </div>
+        <div id="img-container">
+          <img alt="Shuffly logo" id="logo" src={logo}></img>
+        </div>
+      </div>
     );
   }
 }
