@@ -2,32 +2,17 @@ import React, { Component } from 'react';
 import Playlists from './Playlists';
 import SearchBar from './SearchBar';
 import User from './User';
-import getHashParams from '../functions/getHashParams';
-import Spotify from 'spotify-web-api-js';
-
-const spotifyWebApi = new Spotify();
+import './Menu.css';
 
 class Menu extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      params: getHashParams(),
-      query: '',
-      user: ''
+      params: this.props.params,
+      query: this.props.query,
+      userId: this.props.userId
     };
     this.propagateQuery = this.propagateQuery.bind(this);
-    if (this.state.params.access_token) {
-      spotifyWebApi.setAccessToken(this.state.params.access_token);
-    }
-  }
-
-  componentDidMount() {
-    spotifyWebApi.getMe()
-      .then(res => this.setState({ user: res }))
-      .catch(err => {
-        const response = JSON.parse(err.response);
-        console.error(response.error);
-      });
   }
 
   propagateQuery(query) {
@@ -39,11 +24,11 @@ class Menu extends Component {
   render() {
     return (
       <div>
-        <div>
-          <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
-          <User user={this.state.user} />
+        <div id="header-container">
+          <SearchBar propagateQuery={this.propagateQuery} query={this.props.query} />
+          <User user={this.props.user}></User>
         </div>
-        <Playlists params={this.state.params} query={this.state.query} userId={this.state.user.id} />
+        <Playlists params={this.props.params} query={this.props.query} userId={this.props.user ? this.props.user.id : ""} />
       </div>
     );
   }

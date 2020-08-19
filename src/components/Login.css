@@ -1,0 +1,79 @@
+#background {
+    height                 : 100vh;
+    background             : url(../images/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size   : cover;
+    -o-background-size     : cover;
+    background-size        : cover;
+    /* background-size     : cover; */
+    display                : flex;
+    flex-direction         : row;
+}
+
+#text-container {
+    display        : flex;
+    flex-direction : column;
+    flex-grow      : 1;
+    justify-content: center;
+    margin-left    : 5rem;
+    width          : fit-content;
+}
+
+#button-container {
+    align-items   : center;
+    display       : flex;
+    flex-direction: column;
+    width         : fit-content;
+}
+
+#img-container {
+    flex-grow: 1;
+}
+
+#logo {
+    width: 27rem;
+}
+
+.SpotifyButton {
+    background   : #1DB954;
+    border       : none;
+    border-radius: 1.7rem;
+    color        : white;
+    font-size    : x-large;
+    margin       : 0.7rem;
+    outline      : none;
+    padding      : 1rem 2rem 1rem 2rem;
+    width        : fit-content;
+}
+
+span {
+    text-align: left;
+}
+
+#welcome {
+    font-weight: bold;
+    font-size  : xx-large;
+}
+
+#description {
+    font-size    : x-large;
+    margin-bottom: 3rem;
+    margin-top   : 4rem;
+}
+
+#powered-by {
+    color    : grey;
+    font-size: small;
+}
+
+/* nunito-sans-regular - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style : normal;
+    font-weight: 400;
+    src        : local('Nunito Sans Regular'), local('NunitoSans-Regular'),
+        url('../fonts/nunito-sans-v5-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/nunito-sans-v5-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
