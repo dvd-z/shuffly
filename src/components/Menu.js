@@ -5,13 +5,8 @@ import User from './User';
 import './Menu.css';
 
 class Menu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      params: this.props.params,
-      query: this.props.query,
-      userId: this.props.userId
-    };
+  constructor() {
+    super();
     this.propagateQuery = this.propagateQuery.bind(this);
   }
 
