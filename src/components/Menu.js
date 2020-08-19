@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Playlists from './Playlists';
 import SearchBar from './SearchBar';
 import User from './User';
+import './Menu.css';
 
 class Menu extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Menu extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div id="header-container">
           <SearchBar propagateQuery={this.propagateQuery} query={this.props.query} />
           <User user={this.props.user}></User>
         </div>
