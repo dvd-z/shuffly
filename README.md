@@ -2,9 +2,9 @@
 
 Shuffly is an app that allows you to shuffle your Spotify playlists without removing and readding songs.
 
-Created in collaboration with [Tim He](https://github.com/timyhe).
+Try it out here: http://dvd-z.github.io/shuffly. Select a playlist that you'd like to shuffle and begin!
 
-Initial mock-ups can be found on [Figma](https://www.figma.com/file/e1wJbRxr0BGGZIuBbitUh1af/shuffly).
+Designs by [Tim He](https://github.com/timyhe). Initial mock-ups can be found on [Figma](https://www.figma.com/file/e1wJbRxr0BGGZIuBbitUh1af/shuffly).
 
 ## Requirements
 
@@ -19,7 +19,3 @@ cd shuffly
 npm install
 npm start
 ```
-
-## Usage
-
-Select a playlist that you'd like to shuffle and begin!
