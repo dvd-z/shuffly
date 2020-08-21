@@ -26,7 +26,7 @@ class Login extends Component {
       <div id="background">
         <div id="text-container">
           <span id="welcome"><span role="img" aria-label="Hand wave">👋</span>&nbsp;&nbsp;Hey there, welcome to Shuffly</span>
-          <span id="description">Shuffly is a service that directly accesses<br />your Spotify playlists to randomly<br /> reorder the tracks on them in place</span>
+          <span id="description">Shuffly is a service that directly accesses your Spotify playlists to randomly reorder the tracks on them in place</span>
           <div id="button-container">
             <button className="SpotifyButton" onClick={() => this.login()}>LOG IN WITH SPOTIFY</button>
             <span id="powered-by">Powered by Spotify API</span>
