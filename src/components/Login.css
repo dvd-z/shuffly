@@ -1,11 +1,11 @@
 #background {
+    align-items            : center;
     height                 : 100vh;
     background             : url(../images/background.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size   : cover;
     -o-background-size     : cover;
     background-size        : cover;
-    /* background-size     : cover; */
     display                : flex;
     flex-direction         : row;
 }
@@ -16,6 +16,7 @@
     flex-grow      : 1;
     justify-content: center;
     margin-left    : 5rem;
+    margin-right   : 4rem;
     width          : fit-content;
 }
 
@@ -28,6 +29,12 @@
 
 #img-container {
     flex-grow: 1;
+}
+
+@media (max-width: 800px) {
+    #logo {
+        display: none;
+    }
 }
 
 #logo {
