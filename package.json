@@ -14,11 +14,11 @@
     "url": "https://github.com/dvd-z/shuffly/issues"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_ENV=development react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "cross-env NODE_ENV=production npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -39,6 +39,7 @@
     "spotify-web-api-js": "^1.2.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "gh-pages": "^3.1.0"
   }
 }
