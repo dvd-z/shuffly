@@ -1,4 +1,9 @@
-#header-container {
+#menu-wrapper {
+    margin: 2rem 5rem 2rem 5rem;
+}
+
+#header-wrapper {
+    align-items    : center;
     display        : flex;
     flex-direction : row;
     justify-content: space-between;

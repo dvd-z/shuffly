@@ -21,8 +21,8 @@ class Menu extends Component {
 
   render() {
     return (
-      <div>
-        <div id="header-container">
+      <div id="menu-wrapper">
+        <div id="header-wrapper">
           <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.props.user}></User>
         </div>

@@ -1,5 +1,7 @@
 #user-container {
     display       : flex;
+    font-family   : 'Nunito Sans';
+    font-size     : large;
     flex-direction: row;
 }
 
