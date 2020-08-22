@@ -32,12 +32,6 @@
     flex-grow: 1;
 }
 
-@media (max-width: 800px) {
-    #logo {
-        display: none;
-    }
-}
-
 #logo {
     width: 27rem;
 }
@@ -76,6 +70,31 @@ span {
 #powered-by {
     color    : grey;
     font-size: small;
+}
+
+#github {
+    color    : grey;
+    font-size: small;
+}
+
+a:link {
+    color: #1DB954;
+}
+
+a:visited,
+a:after {
+    color: #157737;
+}
+
+@media (max-width: 800px) {
+    #logo {
+        display: none;
+    }
+
+    #description {
+        margin-bottom: 2rem;
+        margin-top   : 3rem;
+    }
 }
 
 /* inter-regular - latin */

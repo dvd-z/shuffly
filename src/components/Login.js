@@ -30,6 +30,7 @@ class Login extends Component {
           <div id="button-container">
             <button className="SpotifyButton" onClick={() => this.login()}>LOG IN WITH SPOTIFY</button>
             <span id="powered-by">Powered by Spotify API</span>
+            <span id="github"><a href="https://github.com/dvd-z/shuffly">Check out the code on GitHub</a></span>
           </div>
         </div>
         <div id="img-container">
