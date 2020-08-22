@@ -7,6 +7,9 @@ import './Menu.css';
 class Menu extends Component {
   constructor() {
     super();
+    this.state = {
+      query: ''
+    };
     this.propagateQuery = this.propagateQuery.bind(this);
   }
 
@@ -20,10 +23,10 @@ class Menu extends Component {
     return (
       <div>
         <div id="header-container">
-          <SearchBar propagateQuery={this.propagateQuery} query={this.props.query} />
+          <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.props.user}></User>
         </div>
-        <Playlists params={this.props.params} query={this.props.query} userId={this.props.user ? this.props.user.id : ""} />
+        <Playlists params={this.props.params} query={this.state.query} userId={this.props.user ? this.props.user.id : ""} />
       </div>
     );
   }
