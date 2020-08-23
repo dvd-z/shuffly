@@ -5,12 +5,10 @@ import User from './User';
 import './Menu.css';
 
 class Menu extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      params: this.props.params,
-      query: this.props.query,
-      userId: this.props.userId
+      query: ''
     };
     this.propagateQuery = this.propagateQuery.bind(this);
   }
@@ -23,12 +21,13 @@ class Menu extends Component {
 
   render() {
     return (
-      <div>
-        <div id="header-container">
-          <SearchBar propagateQuery={this.propagateQuery} query={this.props.query} />
+      <div id='menu-container'>
+        <div id='header-container'>
+          <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.props.user}></User>
         </div>
-        <Playlists params={this.props.params} query={this.props.query} userId={this.props.user ? this.props.user.id : ""} />
+        <Playlists params={this.props.params} query={this.state.query}
+          userId={this.props.user ? this.props.user.id : ''} />
       </div>
     );
   }

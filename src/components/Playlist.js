@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Tracks from './Tracks';
 import Spotify from 'spotify-web-api-js';
+import './Playlist.css';
 
 const spotifyWebApi = new Spotify();
 
@@ -8,34 +8,8 @@ class Playlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadable: false,
-      selected: null,
-      shuffling: false,
-      tracks: []
+      shuffling: false
     };
-  }
-
-  handleClick() {
-    if (this.state.selected === null) {
-      const options = {
-        fields: 'items(track(album(images(url)),artists(name),external_urls,id,name)),limit',
-        limit: 3
-      };
-      spotifyWebApi.getPlaylistTracks(this.props.playlist.id, options)
-        .then(res => {
-          this.setState({
-            loadable: this.props.playlist.tracks.total > res.limit,
-            tracks: res.items
-          });
-        })
-        .catch(err => {
-          const response = JSON.parse(err.response);
-          console.error(response.error);
-        });
-    }
-    this.setState({
-      selected: !this.state.selected
-    });
   }
 
   fetchNewArt(id) {
@@ -55,9 +29,7 @@ class Playlist extends Component {
         clearInterval(swapInterval);
         this.fetchNewArt(this.props.id);
         this.setState({
-          selected: null,
-          shuffling: false,
-          tracks: []
+          shuffling: false
         });
       }
     }, 100);
@@ -75,24 +47,24 @@ class Playlist extends Component {
   render() {
     return (
       <div>
-        {!this.state.shuffling ? (
-          <div onClick={() => this.handleClick()}>
-            <img alt={this.props.playlist.name + " album art"}
-              src={this.props.playlist.images[0] ? this.props.playlist.images[0].url : 'data:,'} height="64">
-              </img>
-            {this.props.playlist.name} - {this.props.playlist.tracks.total} songs -
-            <a href={this.props.playlist.external_urls.spotify}>Hyperlink</a>
-            {this.state.selected &&
-              <button onClick={() => this.shufflePlaylist()}>Shuffle</button>
-            }
-            {this.state.selected &&
-              <Tracks loadable={this.state.loadable} tracks={this.state.tracks} />
-            }
+        <div id='playlist-container'>
+          <div>
+            <img id='playlist-art' alt={this.props.playlist.name + ' album art'}
+              src={this.props.playlist.images[0] ? this.props.playlist.images[0].url : 'data:,'} height='64'>
+            </img>
+            <span id='playlist-title'>
+              <a id='playlist-link'
+                href={this.props.playlist.external_urls.spotify}>{this.props.playlist.name}
+              </a>
+            </span>
+            <span id='playlist-description'>{this.props.playlist.tracks.total} songs
+            </span>
           </div>
-        ) : (
-            <div>Shuffling...</div>
-          )
-        }
+          <button id='playlist-shuffle' disabled={this.state.shuffling} className='SpotifyButton'
+            onClick={() => this.shufflePlaylist()}>{this.state.shuffling ? 'SHUFFLING...' : 'SHUFFLE'}
+          </button>
+        </div>
+        <hr></hr>
       </div>
     );
   }

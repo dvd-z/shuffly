@@ -1,11 +1,11 @@
 #background {
+    align-items            : center;
     height                 : 100vh;
     background             : url(../images/background.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size   : cover;
     -o-background-size     : cover;
     background-size        : cover;
-    /* background-size     : cover; */
     display                : flex;
     flex-direction         : row;
 }
@@ -14,8 +14,10 @@
     display        : flex;
     flex-direction : column;
     flex-grow      : 1;
+    font-family    : 'Open Sans';
     justify-content: center;
     margin-left    : 5rem;
+    margin-right   : 4rem;
     width          : fit-content;
 }
 
@@ -26,7 +28,7 @@
     width         : fit-content;
 }
 
-#img-container {
+#img-wrapper {
     flex-grow: 1;
 }
 
@@ -37,10 +39,10 @@
 .SpotifyButton {
     background   : #1DB954;
     border       : none;
-    border-radius: 1.7rem;
+    border-radius: 1.8rem;
     color        : white;
+    font-family  : 'Inter';
     font-size    : x-large;
-    margin       : 0.7rem;
     outline      : none;
     padding      : 1rem 2rem 1rem 2rem;
     width        : fit-content;
@@ -51,19 +53,60 @@ span {
 }
 
 #welcome {
-    font-weight: bold;
-    font-size  : xx-large;
+    font-family   : 'Nunito Sans';
+    font-weight   : bold;
+    font-size     : xx-large;
+    letter-spacing: 1px;
 }
 
 #description {
     font-size    : x-large;
     margin-bottom: 3rem;
     margin-top   : 4rem;
+    max-width    : 30rem;
 }
 
 #powered-by {
+    color      : grey;
+    font-size  : small;
+    padding-top: 1rem;
+}
+
+#github {
     color    : grey;
     font-size: small;
+}
+
+a:link {
+    color: #1DB954;
+}
+
+a:visited,
+a:after {
+    color: #157737;
+}
+
+@media (max-width: 800px) {
+    #logo {
+        display: none;
+    }
+
+    #description {
+        margin-bottom: 2rem;
+        margin-top   : 3rem;
+    }
+}
+
+/* inter-regular - latin */
+@font-face {
+    font-family: 'Inter';
+    font-style : normal;
+    font-weight: 400;
+    src        : local(''),
+        url('../fonts/inter-v2-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/inter-v2-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* nunito-sans-regular - latin */
@@ -75,5 +118,29 @@ span {
         url('../fonts/nunito-sans-v5-latin-regular.woff2') format('woff2'),
         /* Chrome 26+, Opera 23+, Firefox 39+ */
         url('../fonts/nunito-sans-v5-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* nunito-sans-700 - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style : normal;
+    font-weight: 700;
+    src        : local('Nunito Sans Bold'), local('NunitoSans-Bold'),
+        url('../fonts/nunito-sans-v5-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/nunito-sans-v5-latin-700.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-regular - latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style : normal;
+    font-weight: 400;
+    src        : local('Open Sans Regular'), local('OpenSans-Regular'),
+        url('../fonts/open-sans-v17-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/open-sans-v17-latin-regular.woff') format('woff');
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
