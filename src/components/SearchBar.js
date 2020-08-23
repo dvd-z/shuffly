@@ -18,8 +18,8 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div id="wrapper">
-        <input class="search" type="text" value={this.state.query} onChange={this.handleChange} placeholder="Filter"></input>
+      <div id="search-wrapper">
+        <input class="search" type="text" value={this.state.query} onChange={this.handleChange} placeholder="Search"></input>
       </div>
     );
   }

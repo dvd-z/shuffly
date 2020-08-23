@@ -63,7 +63,9 @@ class Playlists extends Component {
     );
     return (
       <div>
-        <h3>Your Playlists</h3>
+        <div id="your-playlists-wrapper">
+          <h3 id="your-playlists">Your Playlists</h3>
+        </div>
         <div className="scroller">
           {filteredPlaylists}
         </div>

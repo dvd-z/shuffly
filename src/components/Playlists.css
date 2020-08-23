@@ -1,7 +1,10 @@
 .scroller {
   background: #d3d3d3;
-  margin    : 0 auto;
   height    : 70vh;
-  width     : 60vw;
   overflow  : auto;
+}
+
+#your-playlists {
+  font-family: 'Open Sans';
+  font-size: xx-large;
 }
