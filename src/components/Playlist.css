@@ -41,7 +41,7 @@
   align-self: center;
 }
 
-.SpotifyButton {
+.ShuffleButton {
   font-size: large;
 }
 
@@ -70,7 +70,7 @@ hr {
     font-size: large;
   }
 
-  .SpotifyButton {
+  .ShuffleButton {
     border-radius: 1.8rem;
     font-size    : large;
     padding      : 0.85rem 1.5rem 0.85rem 1.5rem;
@@ -104,7 +104,7 @@ hr {
     font-size: medium;
   }
 
-  .SpotifyButton {
+  .ShuffleButton {
     border-radius: 1.8rem;
     font-size    : medium;
     padding      : 0.7rem 1.2rem 0.7rem 1.2rem;
@@ -128,7 +128,7 @@ hr {
 }
 
 @media (max-width: 500px) {
-  .SpotifyButton {
+  .ShuffleButton {
     border-radius: 1.8rem;
     font-size    : small;
     padding      : 0.6rem 1.1rem 0.6rem 1.1em;
