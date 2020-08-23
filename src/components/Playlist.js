@@ -55,9 +55,8 @@ class Playlist extends Component {
             <span id="playlist-title">
               <a id="playlist-link" href={this.props.playlist.external_urls.spotify}>{this.props.playlist.name}</a>
             </span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span id="playlist-description">{this.props.playlist.tracks.total} songs
-        </span>
+            <span id="playlist-description">{this.props.playlist.tracks.total} songs
+            </span>
           </div>
           <button id="playlist-shuffle" disabled={this.state.shuffling} className="SpotifyButton" onClick={() => this.shufflePlaylist()}>{this.state.shuffling ? 'SHUFFLING...' : 'SHUFFLE'}</button>
         </div>
