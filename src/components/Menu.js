@@ -21,12 +21,13 @@ class Menu extends Component {
 
   render() {
     return (
-      <div id="menu-wrapper">
-        <div id="header-wrapper">
+      <div id='menu-container'>
+        <div id='header-container'>
           <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.props.user}></User>
         </div>
-        <Playlists params={this.props.params} query={this.state.query} userId={this.props.user ? this.props.user.id : ""} />
+        <Playlists params={this.props.params} query={this.state.query}
+          userId={this.props.user ? this.props.user.id : ''} />
       </div>
     );
   }

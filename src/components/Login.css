@@ -28,7 +28,7 @@
     width         : fit-content;
 }
 
-#img-container {
+#img-wrapper {
     flex-grow: 1;
 }
 

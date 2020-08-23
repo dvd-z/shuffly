@@ -33,12 +33,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <div>
             <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/app" render={
+              <Route exact path='/' component={Login} />
+              <Route exact path='/app' render={
                 (props) => <Menu {...props} params={this.state.params} query={this.state.query} user={this.state.user} />
               } />
               <Route component={NotFound} />
