@@ -85,7 +85,7 @@ hr {
 
 @media (max-width: 800px) {
   #playlist-container {
-    padding: 0.1rem 0.4rem 0 0.4rem;
+    padding: 0.1rem 0.3rem 0 0.3rem;
   }
 
   #playlist-art {
@@ -112,7 +112,25 @@ hr {
 }
 
 @media (max-width: 600px) {
+  #playlist-container {
+    padding: 0.1rem 0.1rem 0 0.1rem;
+  }
+
   #playlist-title {
     max-width: 8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #playlist-title {
+    max-width: 6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .SpotifyButton {
+    border-radius: 1.8rem;
+    font-size    : small;
+    padding      : 0.6rem 1.1rem 0.6rem 1.1em;
   }
 }
