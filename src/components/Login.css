@@ -39,11 +39,10 @@
 .SpotifyButton {
     background   : #1DB954;
     border       : none;
-    border-radius: 1.7rem;
+    border-radius: 1.8rem;
     color        : white;
     font-family  : 'Inter';
     font-size    : x-large;
-    margin       : 0.7rem;
     outline      : none;
     padding      : 1rem 2rem 1rem 2rem;
     width        : fit-content;
@@ -68,8 +67,9 @@ span {
 }
 
 #powered-by {
-    color    : grey;
-    font-size: small;
+    color      : grey;
+    font-size  : small;
+    padding-top: 1rem;
 }
 
 #github {
