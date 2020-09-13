@@ -48,16 +48,21 @@ class Playlist extends Component {
     return (
       <div>
         <div id='playlist-container'>
-          <div>
+          <div id='playlist-metadata'>
             <img id='playlist-art' alt={this.props.playlist.name + ' album art'}
               src={this.props.playlist.images[0] ? this.props.playlist.images[0].url : 'data:,'} height='64'>
             </img>
-            <span id='playlist-title'>
-              <a id='playlist-link'
-                href={this.props.playlist.external_urls.spotify}>{this.props.playlist.name}
-              </a>
-            </span>
-            <span id='playlist-description'>{this.props.playlist.tracks.total} songs
+            <span id='playlist-descriptions'>
+              <span id='playlist-title'>
+                <a id='playlist-link'
+                  href={this.props.playlist.external_urls.spotify}>{this.props.playlist.name}
+                </a>
+              </span>
+              <div id='playlist-songs-container'>
+                <span id='playlist-songs'>{this.props.playlist.tracks.total}
+                </span>
+                <span id='songs-text'>&nbsp;songs</span>
+              </div>
             </span>
           </div>
           <button id='playlist-shuffle' disabled={this.state.shuffling} className='SpotifyButton ShuffleButton'

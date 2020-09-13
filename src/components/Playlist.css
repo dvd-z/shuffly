@@ -6,12 +6,23 @@
   padding        : 0.2rem 1rem 0 1rem;
 }
 
+#playlist-metadata {
+  align-items   : flex-end;
+  display       : flex;
+  flex-direction: row;
+}
+
 #playlist-art {
   border-radius: 0.5rem;
   filter       : drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   height       : 4.5rem;
   object-fit   : cover;
   width        : 4.5rem;
+}
+
+#playlist-descriptions {
+  display       : flex;
+  flex-direction: row;
 }
 
 #playlist-title {
@@ -26,10 +37,13 @@
   white-space   : nowrap;
 }
 
-#playlist-description {
-  color      : grey;
-  font-family: 'Open Sans';
-  font-size  : x-large;
+#playlist-songs-container {
+  align-items   : flex-end;
+  color         : grey;
+  display       : flex;
+  flex-direction: row;
+  font-family   : 'Open Sans';
+  font-size     : x-large;
 }
 
 #playlist-link {
@@ -66,7 +80,7 @@ hr {
     padding  : 0 1rem 0 1rem;
   }
 
-  #playlist-description {
+  #playlist-songs-container {
     font-size: large;
   }
 
@@ -95,19 +109,18 @@ hr {
   }
 
   #playlist-title {
-    font-size: large;
     max-width: 14rem;
     padding  : 0 0.5rem 0 0.5rem;
   }
 
-  #playlist-description {
-    font-size: medium;
+  #playlist-songs-container {
+    font-size: normal;
+    padding  : 0 0.5rem 0 0.5rem;
   }
 
   .ShuffleButton {
-    border-radius: 1.8rem;
-    font-size    : medium;
-    padding      : 0.7rem 1.2rem 0.7rem 1.2rem;
+    font-size: medium;
+    padding  : 0.7rem 1.2rem 0.7rem 1.2rem;
   }
 }
 
@@ -116,21 +129,37 @@ hr {
     padding: 0.1rem 0.1rem 0 0.1rem;
   }
 
+  #playlist-descriptions {
+    flex-direction: column;
+  }
+
   #playlist-title {
-    max-width: 8rem;
+    font-size: large;
+    max-width: 10rem;
+  }
+
+  .ShuffleButton {
+    font-size: medium;
+    padding  : 0.55rem 0.9rem 0.55rem 0.9rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   #playlist-title {
     max-width: 6rem;
   }
+
+  #songs-text {
+    display: none;
+  }
 }
 
-@media (max-width: 500px) {
-  .ShuffleButton {
-    border-radius: 1.8rem;
-    font-size    : small;
-    padding      : 0.6rem 1.1rem 0.6rem 1.1em;
+@media (max-width: 300px) {
+  #playlist-title {
+    max-width: 4rem;
+  }
+
+  #songs-text {
+    display: none;
   }
 }
