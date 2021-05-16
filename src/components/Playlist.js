@@ -7,6 +7,7 @@ const spotifyWebApi = new Spotify();
 class Playlist extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       shuffling: false
     };
@@ -20,13 +21,18 @@ class Playlist extends Component {
     this.setState({
       shuffling: true
     });
+
     let i = this.props.playlist.tracks.total - 1;
+
     let swapInterval = setInterval(() => {
       const j = Math.floor(Math.random() * (i + 1));
       this.swap(i, j);
+
       i--;
+
       if (i <= 0) {
         clearInterval(swapInterval);
+
         this.fetchNewArt(this.props.id);
         this.setState({
           shuffling: false
@@ -50,7 +56,7 @@ class Playlist extends Component {
         <div id='playlist-container'>
           <div id='playlist-metadata'>
             <img id='playlist-art' alt={this.props.playlist.name + ' album art'}
-              src={this.props.playlist.images[0] ? this.props.playlist.images[0].url : 'data:,'} height='64'>
+              src={this.props.playlist.images?.[0]?.url ?? 'data:,'} height='64'>
             </img>
             <span id='playlist-descriptions'>
               <span id='playlist-title'>

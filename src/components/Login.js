@@ -18,6 +18,7 @@ class Login extends Component {
       + '&scope=' + encodeURIComponent(scope.join(' '))
       + '&redirect_uri=' + encodeURIComponent(redirectUri)
       + '&state=' + encodeURIComponent(state);
+
     window.location = url;
   }
 
