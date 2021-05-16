@@ -8,10 +8,12 @@ const spotifyWebApi = new Spotify();
 class Playlists extends Component {
   constructor() {
     super();
+
     this.state = {
       index: 0,
       playlists: []
     };
+
     this.fetchNewArt = this.fetchNewArt.bind(this);
   }
 
@@ -34,6 +36,7 @@ class Playlists extends Component {
     const options = {
       fields: 'images'
     };
+
     spotifyWebApi.getPlaylist(id, options)
       .then(res => {
         let swappedPlaylists = this.state.playlists;
@@ -61,6 +64,7 @@ class Playlists extends Component {
         playlist={playlist}
       />
     );
+
     return (
       <div id='playlists-container'>
         <span id='your-playlists-wrapper'>

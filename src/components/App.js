@@ -12,11 +12,13 @@ const spotifyWebApi = new Spotify();
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       params: getHashParams(),
       query: '',
       user: ''
     };
+
     if (this.state.params.access_token) {
       spotifyWebApi.setAccessToken(this.state.params.access_token);
     }
