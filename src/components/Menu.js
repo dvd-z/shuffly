@@ -41,8 +41,11 @@ class Menu extends Component {
           <SearchBar propagateQuery={this.propagateQuery} query={this.state.query} />
           <User user={this.state.user}></User>
         </div>
-        <Playlists params={this.props.params} query={this.state.query}
-          userId={this.state.user?.id} />
+        <Playlists
+          params={this.props.params}
+          query={this.state.query}
+          userId={this.state.user?.id}
+        />
       </div>
     );
   }

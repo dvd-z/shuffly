@@ -31,7 +31,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Login} />
               <Route exact path='/app' render={
-                (props) => <Menu {...props} params={this.state.params} query={this.state.query} user={this.state.user} />
+                (props) => <Menu {...props} params={this.state.params} query={this.state.query} />
               } />
               <Route component={NotFound} />
             </Switch>
