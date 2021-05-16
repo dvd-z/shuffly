@@ -8,7 +8,7 @@ class User extends Component {
     if (this.props.user) {
       let userImg;
 
-      if (this.props.user.images[0].url) {
+      if (this.props.user.images[0]) {
         userImg = (
           <img alt='Profile'
             src={this.props.user.images[0].url} height='64'
