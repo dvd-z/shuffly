@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/shuffly/static/css/main.998a62fd.chunk.css",
-    "main.js": "/shuffly/static/js/main.36b888c6.chunk.js",
-    "main.js.map": "/shuffly/static/js/main.36b888c6.chunk.js.map",
+    "main.js": "/shuffly/static/js/main.28f353d5.chunk.js",
+    "main.js.map": "/shuffly/static/js/main.28f353d5.chunk.js.map",
     "runtime-main.js": "/shuffly/static/js/runtime-main.307bf724.js",
     "runtime-main.js.map": "/shuffly/static/js/runtime-main.307bf724.js.map",
-    "static/js/2.bc058db2.chunk.js": "/shuffly/static/js/2.bc058db2.chunk.js",
-    "static/js/2.bc058db2.chunk.js.map": "/shuffly/static/js/2.bc058db2.chunk.js.map",
+    "static/js/2.31aa2777.chunk.js": "/shuffly/static/js/2.31aa2777.chunk.js",
+    "static/js/2.31aa2777.chunk.js.map": "/shuffly/static/js/2.31aa2777.chunk.js.map",
     "index.html": "/shuffly/index.html",
     "static/css/main.998a62fd.chunk.css.map": "/shuffly/static/css/main.998a62fd.chunk.css.map",
-    "static/js/2.bc058db2.chunk.js.LICENSE.txt": "/shuffly/static/js/2.bc058db2.chunk.js.LICENSE.txt",
+    "static/js/2.31aa2777.chunk.js.LICENSE.txt": "/shuffly/static/js/2.31aa2777.chunk.js.LICENSE.txt",
     "static/media/Login.css": "/shuffly/static/media/open-sans-v17-latin-regular.f57a62e9.woff2",
     "static/media/logo.b1cdd032.png": "/shuffly/static/media/logo.b1cdd032.png"
   },
   "entrypoints": [
     "static/js/runtime-main.307bf724.js",
-    "static/js/2.bc058db2.chunk.js",
+    "static/js/2.31aa2777.chunk.js",
     "static/css/main.998a62fd.chunk.css",
-    "static/js/main.36b888c6.chunk.js"
+    "static/js/main.28f353d5.chunk.js"
   ]
 }
