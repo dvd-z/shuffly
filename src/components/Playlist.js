@@ -38,7 +38,7 @@ class Playlist extends Component {
           shuffling: false
         });
       }
-    }, 100);
+    }, 125);
   }
 
   swap(to, from) {
